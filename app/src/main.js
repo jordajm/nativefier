@@ -35,6 +35,8 @@ if (isOSX()) {
     setDockBadge = app.dock.setBadge;
 }
 
+app.powerSaveBlocker.start('prevent-app-suspension');
+
 app.on('window-all-closed', () => {
     if (!isOSX() || appArgs.fastQuit) {
         app.quit();
