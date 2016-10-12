@@ -63,7 +63,10 @@ function buildMain(options, callback) {
         (options, callback) => {
             progress.tick('packaging');
             // maybe skip passing icon parameter to electron packager
-            const packageOptions = maybeNoIconOption(options);
+            var packageOptions = maybeNoIconOption(options);
+
+            packageOptions['osx-sign'] = true;
+            packageOptions['app-category-type'] = 'public.app-category.music';
 
             packagerConsole.override();
 
